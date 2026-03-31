@@ -1,0 +1,128 @@
+body {
+    background-color: #9de0f5;
+    font-family: Arial, sans-serif;
+    color: #060606;
+}
+
+#page {
+    position: absolute;
+    width: 1200px;
+    height: 1100px;
+    top: 20px;
+    left: 20px;
+}
+
+#header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 1120px;
+    height: 100px;
+    background-color: #4d8cf1;
+    border: 2px solid #0c0c0c;
+    padding: 20px;
+}
+
+#header h1 {
+    margin: 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+}
+
+#header h2 {
+    margin-top: 10px;
+    font-size: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: normal;
+}
+
+h3 {
+    margin-top: 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+
+#what,
+#how,
+#why,
+#cancer,
+#research {
+    position: absolute;
+    width: 340px;
+    height: 230px;
+    background-color: #ffffff;
+    border: 2px solid #555555;
+    padding: 15px;
+}
+
+
+
+#p53-image {
+    position: absolute;
+    width: 340px;
+    height: 260px;
+    border: 2px solid #555555;
+    background-color: #ffffff;
+}
+
+#p53-image img {
+    width: 340px;
+    height: 260px;
+}
+
+
+#what {
+    top: 180px;
+    left: 20px;
+}
+
+#p53-image {
+    top: 180px;
+    left: 415px;
+}
+#how {
+    top: 180px;
+    left: 790px;
+}
+
+
+
+
+
+#why {
+    top: 500px;
+    left: 20px;
+}
+
+#cancer {
+    top: 500px;
+    left: 400px;
+}
+
+#research {
+    top: 500px;
+    left: 790px;
+}
+
+#footer {
+    position: absolute;
+    top: 780px;
+    left: 20px;
+    width: 1120px;
+    height: 50px;
+    background-color: #4d8cf1;
+    border: 2px solid #555555;
+    padding: 20px;
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+a:link {
+    color: darkblue;
+}
+
+a:visited {
+    color: rgb(135, 142, 148);
+}
