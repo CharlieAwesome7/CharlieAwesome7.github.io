@@ -42,7 +42,7 @@ tw-passage::-webkit-scrollbar-thumb {
   border-radius: 3px;
 }
 
-tw-link, .link {
+tw-link, link {
   color: #d7d7d7;
   text-decoration: none;
   border-bottom: 1px solid rgba(255,255,255,0.25);
@@ -50,7 +50,7 @@ tw-link, .link {
   padding: 2px 4px;
 }
 
-tw-link:hover, .link:hover {
+tw-link:hover, link:hover {
   color: white;
   border-bottom: 1px solid rgba(255,255,255,0.6);
   background-color: rgba(255,255,255,0.05);
@@ -58,7 +58,7 @@ tw-link:hover, .link:hover {
 
 tw-link {
   display: block;
-  margin: 3px 0;
+  margin: 1.25px 0;
 }
 
 
@@ -227,12 +227,16 @@ feedback {
   font-style: italic;
 }
 
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="mindhub" color="orange"></tw-tag><tw-tag name="focus" color="blue"></tw-tag><tw-tag name="comparison" color="red"></tw-tag><tw-tag name="pressure" color="green"></tw-tag><tw-tag name="calendar" color="green"></tw-tag><tw-tag name="procrastination" color="blue"></tw-tag><tw-tag name="tabs" color="yellow"></tw-tag><tw-tag name="body" color="yellow"></tw-tag><tw-tag name="productivity" color="blue"></tw-tag><tw-tag name="sleep" color="green"></tw-tag><tw-tag name="numbness" color="green"></tw-tag><tw-tag name="burnout" color="yellow"></tw-tag><tw-tag name="guilt" color="blue"></tw-tag><tw-tag name="impostersyndrome" color="purple"></tw-tag><tw-tag name="future" color="purple"></tw-tag><tw-tag name="fog" color="purple"></tw-tag><tw-tag name="shutdown" color="green"></tw-tag><tw-tag name="collapse" color="green"></tw-tag><tw-tag name="continue" color="green"></tw-tag><tw-tag name="awareness" color="blue"></tw-tag><tw-tag name="start" color="blue"></tw-tag><tw-passagedata pid="1" name="Mind Hub" tags="mind-hub mindhub" position="500,75" size="100,100">(if: $stress is 0)[
-(set: $stress to 1)
-(set: $awareness to 0)
-(set: $energy to 5)
-]
-Before you is a familar sight.
+locked {
+  display: block;
+  margin: 3px 0;
+  color: rgba(255,255,255,0.45);
+  font-style: italic;
+  border-bottom: none;
+}
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="mindhub" color="orange"></tw-tag><tw-tag name="focus" color="blue"></tw-tag><tw-tag name="comparison" color="red"></tw-tag><tw-tag name="pressure" color="green"></tw-tag><tw-tag name="calendar" color="green"></tw-tag><tw-tag name="procrastination" color="blue"></tw-tag><tw-tag name="tabs" color="yellow"></tw-tag><tw-tag name="body" color="yellow"></tw-tag><tw-tag name="productivity" color="blue"></tw-tag><tw-tag name="sleep" color="green"></tw-tag><tw-tag name="numbness" color="green"></tw-tag><tw-tag name="burnout" color="yellow"></tw-tag><tw-tag name="guilt" color="blue"></tw-tag><tw-tag name="impostersyndrome" color="purple"></tw-tag><tw-tag name="future" color="purple"></tw-tag><tw-tag name="fog" color="purple"></tw-tag><tw-tag name="shutdown" color="green"></tw-tag><tw-tag name="collapse" color="green"></tw-tag><tw-tag name="continue" color="green"></tw-tag><tw-tag name="awareness" color="blue"></tw-tag><tw-tag name="start" color="blue"></tw-tag><tw-passagedata pid="1" name="Mind Hub" tags="mind-hub mindhub" position="475,0" size="100,100">Before you is a familiar sight.
 
 There is no clear beginning.
 
@@ -251,104 +255,45 @@ You also know you won’t start immediately.
 So you stay here for a moment.
 
 What do you do?
-
-(if: $visitedFocus is not true)[
-[[Focus]]
-]
-(else:)[
-[[Try to focus again-&gt;Focus]]
-]
-
-(if: $visitedProcrastination is not true)[
-[[Procrastination]]
-]
-(else:)[
-[[Drift back into delay-&gt;Procrastination]]
-]
-(if: $visitedComparison is not true)[
-[[Comparison]]
-]
-(else:)[
-[[Measure yourself again-&gt;Comparison]]
-]
-(if: $visitedSleep is not true)[
-[[Sleep]]
-]
-(else:)[
-[[Rest again-&gt;Sleep]]
-]
-(if: $visitedPressure is not true)[
-[[Pressure]]
-]
-(else:)[
-[[Feel the pressure again-&gt;Pressure]]
-]
-(if: $visitedNumbness is not true)[
-[[Numbness]]
-]
-(else:)[
-[[Go quiet again-&gt;Numbness]]
-]</tw-passagedata><tw-passagedata pid="2" name="Focus" tags="focus" position="75,25" size="100,100">(set: $focus to it + 1)
-(set: $stress to it + 1)
-(set: $energy to it - 1)
-(set: $visitedFocus to true)
-
+(if: $awareness &gt;= 3 and $visitedGuilt and $visitedComparison and $visitedFuture and $visitedFog)[ [[Notice the pattern-&gt;Ending: Awareness]] ]
+(else-if: $awareness &gt;= 2)[&lt;span class=&quot;locked&quot;&gt;You almost see the pattern.&lt;/span&gt;]
+(if: $visitedFocus is not true)[ [[Focus]] ](else:)[ [[Try to focus again-&gt;Focus]] ]
+(if: $visitedProcrastination is not true)[ [[Procrastination]] ](else:)[ [[Drift back into delay-&gt;Procrastination]] ]
+(if: $visitedComparison is not true)[ [[Comparison]] ](else:)[ [[Measure yourself again-&gt;Comparison]] ]
+(if: $visitedSleep is not true)[ [[Sleep]] ](else:)[ [[Rest again-&gt;Sleep]] ]
+(if: $visitedPressure is not true)[ [[Pressure]] ](else:)[ [[Feel the pressure again-&gt;Pressure]] ]
+(if: $visitedNumbness is not true)[ [[Numbness]] ](else:)[ [[Go quiet again-&gt;Numbness]] ]</tw-passagedata><tw-passagedata pid="2" name="Focus" tags="focus" position="75,25" size="100,100">
 (text-style:&quot;smear&quot;)[You decide to submit to the work.
 
-You open he assignment.
+You open the assignment.
 
-The words seem familar, but not clear.
+The words seem familiar, but not clear.
 
 You read the same sentence once.
 
 Then again.
 Then again.
 
-It almost make sense.
+It almost makes sense.
 Almost.
 
-Your mind keeps drifiting somewhere just out of reach.
+Your mind keeps drifting somewhere just out of reach.
 
 Still, you stay here.
 For now.
 
-(if: $stress &gt; 5)[&#39;&#39;You try again to focus, but the words blur together. Whatever your doing isn’t working.&#39;&#39;]
+(if: $stress &gt; 5)[&#39;&#39;You try again to focus, but the words blur together. Whatever you&#39;re doing isn’t working.&#39;&#39;]
 ]
-(if: $visitedProductivity is not true)[
-[[Productivity]]
-]
-(else:)[
-[[Organize the work again-&gt;Productivity]]
-]
-
-(if: $visitedPressure is not true)[
-[[Pressure]]
-]
-(else:)[
-[[Feel the pressure again-&gt;Pressure]]
-]
-
-(if: $visitedBurnout is not true)[
-[[Burnout]]
-]
-(else:)[
-[[Wear yourself down again-&gt;Burnout]]
-]
-
-(if: $visitedTabs is not true)[
-[[Tabs]]
-]
-(else:)[
-[[Lose focus in the tabs again-&gt;Tabs]]
-]
-
+(if: $visitedProductivity is not true)[ [[Productivity]] ](else:)[ [[Organize the work again-&gt;Productivity]] ]
+(if: $visitedPressure is not true)[ [[Pressure]] ](else:)[ [[Feel the pressure again-&gt;Pressure]] ]
+(if: $visitedBurnout is not true)[ [[Burnout]] ](else:)[ [[Wear yourself down again-&gt;Burnout]] ]
+(if: $visitedTabs is not true)[ [[Tabs]] ](else:)[ [[Lose focus in the tabs again-&gt;Tabs]] ]
 [[Mind Hub]]
 
-</tw-passagedata><tw-passagedata pid="3" name="Sleep" tags="sleep" position="500,375" size="100,100">(set: $energy to it + 2)
-(set: $stress to it - 1)
-(set: $visitedSleep to true)
-
-(text-style:&quot;buoy&quot;)[You could sleep.
+(set: $focus to it + 1)
+(set: $stress to it + 1)
+(set: $energy to it - 1)
+(set: $visitedFocus to true)</tw-passagedata><tw-passagedata pid="3" name="Sleep" tags="sleep" position="500,375" size="100,100">(text-style:&quot;buoy&quot;)[You could sleep.
 
 Not later.
 Now.
@@ -373,13 +318,14 @@ Rest does not feel like rest.&#39;&#39;]
 [[Burnout]]
 [[Mind Hub]]
 
+(set: $energy to it + 2)
+(set: $stress to it - 1)
+(set: $visitedSleep to true)
 
 
-</tw-passagedata><tw-passagedata pid="4" name="Numbness" tags="numbness" position="700,350" size="100,100">(set: $stress to it - 1)
-(set: $energy to it - 1)
-(set: $visitedNumbness to true)
 
-(text-style:&quot;outline&quot;)[Nothing feels urgent.
+
+</tw-passagedata><tw-passagedata pid="4" name="Numbness" tags="numbness" position="700,350" size="100,100">(text-style:&quot;outline&quot;)[Nothing feels urgent.
 
 Not in a calm way.
 Not in a good way.
@@ -402,12 +348,12 @@ You don’t.
 [[Burnout]]
 [[Mind Hub]]
 
-
-</tw-passagedata><tw-passagedata pid="5" name="Pressure" tags="pressure" position="0,225" size="100,100">(set: $stress to it + 2)
+(set: $stress to it - 1)
 (set: $energy to it - 1)
-(set: $visitedPressure to true)
+(set: $visitedNumbness to true)
 
-(text-style:&quot;rumble&quot;)[It is not just this assignment.
+
+</tw-passagedata><tw-passagedata pid="5" name="Pressure" tags="pressure" position="0,225" size="100,100">(text-style:&quot;rumble&quot;)[It is not just this assignment.
 
 It is everything attached to it.
 
@@ -430,45 +376,17 @@ It does not stay that way for long.
 
 (if: $stress &gt; 6)[&#39;&#39;It feels like there is no space left to think, only to react&#39;&#39;.]
 ]
-(if: $visitedBurnout is not true)[
-[[Burnout]]
-]
-(else:)[
-[[Sink back into burnout-&gt;Burnout]]
-]
+(if: $visitedBurnout is not true)[ [[Burnout]] ](else:)[ [[Sink back into burnout-&gt;Burnout]] ]
+(if: $visitedProductivity is not true)[ [[Productivity]] ](else:)[ [[Organize again-&gt;Productivity]] ]
+(if: $visitedGuilt is not true)[ [[Guilt]] ](else:)[ [[Return to guilt-&gt;Guilt]] ]
+(if: $visitedCalendar is not true)[ [[Calendar]] ](else:)[ [[Check the calendar again-&gt;Calendar]] ]
+(if: $visitedFuture is not true)[ [[Future]] ](else:)[ [[Think too far ahead again-&gt;Future]] ]
+[[Mind Hub]]
 
-(if: $visitedProductivity is not true)[
-[[Productivity]]
-]
-(else:)[
-[[Organize again-&gt;Productivity]]
-]
-
-(if: $visitedGuilt is not true)[
-[[Guilt]]
-]
-(else:)[
-[[Return to guilt-&gt;Guilt]]
-]
-
-(if: $visitedCalendar is not true)[
-[[Calendar]]
-]
-(else:)[
-[[Check the calendar again-&gt;Calendar]]
-]
-
-(if: $visitedFuture is not true)[
-[[Future]]
-]
-(else:)[
-[[Think too far ahead again-&gt;Future]]
-]
-
-[[Mind Hub]]</tw-passagedata><tw-passagedata pid="6" name="Productivity" tags="productivity" position="375,325" size="100,100">(set: $focus to it + 1)
-(set: $stress to it + 1)
-(set: $visitedProductivity to true)
-(text-style:&quot;underline&quot;)[
+(set: $stress to it + 2)
+(set: $energy to it - 1)
+(set: $visitedPressure to true)
+</tw-passagedata><tw-passagedata pid="6" name="Productivity" tags="productivity" position="375,325" size="100,100">(text-style:&quot;underline&quot;)[
 You decide to get organized.
 
 You make a list.
@@ -492,14 +410,12 @@ Still, this feels closer than before.
 [[Calendar]]
 [[Mind Hub]]
 
-
-
-
-</tw-passagedata><tw-passagedata pid="7" name="Burnout" tags="burnout" position="950,325" size="100,100">(set: $energy to it - 2)
+(set: $focus to it + 1)
 (set: $stress to it + 1)
-(set: $visitedBurnout to true)
+(set: $visitedProductivity to true)
 
-Everything feels heavier now.
+
+</tw-passagedata><tw-passagedata pid="7" name="Burnout" tags="burnout" position="950,325" size="100,100">Everything feels heavier now.
 
 Not just the work.
 
@@ -519,35 +435,17 @@ And watch the time pass.
 
 (if: $energy &lt;= 1)[&#39;&#39;Even small actions feel out of reach&#39;&#39;.]
 
-(if: $visitedNumbness is not true)[
-[[Numbness]]
-]
-(else:)[
-[[Go numb again-&gt;Numbness]]
-]
-
-(if: $visitedSleep is not true)[
-[[Sleep]]
-]
-(else:)[
-[[Try to rest again-&gt;Sleep]]
-]
-
-(if: $visitedBody is not true)[
-[[Body]]
-]
-(else:)[
-[[Notice your body again-&gt;Body]]
-]
-
+(if: $visitedNumbness is not true)[ [[Numbness]] ](else:)[ [[Go numb again-&gt;Numbness]] ]
+(if: $visitedSleep is not true)[ [[Sleep]] ](else:)[ [[Try to rest again-&gt;Sleep]] ]
+(if: $visitedBody is not true)[ [[Body]] ](else:)[ [[Notice your body again-&gt;Body]] ]
 [[Shutdown]]
 [[Mind Hub]]
-</tw-passagedata><tw-passagedata pid="8" name="Guilt" tags="guilt" position="100,600" size="100,100">(set: $stress to it + 2)
-(set: $energy to it - 1)
-(set: $awareness to it + 1)
-(set: $visitedGuilt to true)
 
-(text-style:&quot;shudder&quot;)[You should have started earlier.
+(set: $energy to it - 2)
+(set: $stress to it + 1)
+(set: $visitedBurnout to true)
+
+</tw-passagedata><tw-passagedata pid="8" name="Guilt" tags="guilt" position="100,600" size="100,100">(text-style:&quot;shudder&quot;)[You should have started earlier.
 
 You knew that.
 
@@ -564,45 +462,21 @@ You think about what you could have done instead.
 
 That does not help either.
 
-(if: $stress &gt; 6)[&#39;&#39; At this point, iIt feels like catching up is no longer possible, only falling behind more slowly.&#39;&#39;]
+(if: $stress &gt; 6)[&#39;&#39; At this point, it feels like catching up is no longer possible, only falling behind more slowly.&#39;&#39;]
 ]
-(if: $visitedFocus is not true)[
-[[Focus]]
-]
-(else:)[
-[[Try to fix it again-&gt;Focus]]
-]
-
-(if: $visitedProcrastination is not true)[
-[[Procrastination]]
-]
-(else:)[
-[[Delay again-&gt;Procrastination]]
-]
-
-(if: $visitedPressure is not true)[
-[[Pressure]]
-]
-(else:)[
-[[Feel the pressure again-&gt;Pressure]]
-]
-
-(if: $visitedFuture is not true)[
-[[Future]]
-]
-(else:)[
-[[Think ahead again-&gt;Future]]
-]
-
+(if: $visitedFocus is not true)[ [[Focus]] ](else:)[ [[Try to fix it again-&gt;Focus]] ]
+(if: $visitedProcrastination is not true)[ [[Procrastination]] ](else:)[ [[Delay again-&gt;Procrastination]] ]
+(if: $visitedPressure is not true)[ [[Pressure]] ](else:)[ [[Feel the pressure again-&gt;Pressure]] ]
+(if: $visitedFuture is not true)[ [[Future]] ](else:)[ [[Think ahead again-&gt;Future]] ]
 [[Mind Hub]]
-
-
-</tw-passagedata><tw-passagedata pid="9" name="Comparison" tags="comparison" position="850,200" size="100,100">(set: $stress to it + 2)
+(set: $stress to it + 2)
 (set: $energy to it - 1)
 (set: $awareness to it + 1)
-(set: $visitedComparison to true)
+(set: $visitedGuilt to true)
 
-(text-style:&quot;tall&quot;)[You look around.
+
+
+</tw-passagedata><tw-passagedata pid="9" name="Comparison" tags="comparison" position="850,200" size="100,100">(text-style:&quot;fidget&quot;)[You look around.
 
 Not directly.
 Not obviously.
@@ -612,7 +486,7 @@ But enough.
  Then you imagine what other people are doing.
 
 Assignments getting submitted.
-Questions getingt answered.
+Questions getting answered.
 Things making sense.
 
 You imagine them understanding faster,
@@ -624,49 +498,23 @@ Almost as if they are better than you.
 
 You do not know if any of this is true.
 
-That does not stop it from feeling true.
+That does not stop it from feeling true.]
 
 (if: $stress &gt; 5)[&#39;&#39;You stop comparing work and start comparing yourself.&#39;&#39;]
-]
 
 
-
-
-
-(if: $visitedImposter is not true)[
-[[Imposter Syndrome]]
-]
-(else:)[
-[[Question belonging again-&gt;Imposter Syndrome]]
-]
-
-(if: $visitedPressure is not true)[
-[[Pressure]]
-]
-(else:)[
-[[Feel the pressure again-&gt;Pressure]]
-]
-
-(if: $visitedProcrastination is not true)[
-[[Procrastination]]
-]
-(else:)[
-[[Avoid it again-&gt;Procrastination]]
-]
-
-(if: $visitedFuture is not true)[
-[[Future]]
-]
-(else:)[
-[[Think too far ahead again-&gt;Future]]
-]
-
+(if: $visitedImposter is not true)[ [[Imposter Syndrome]] ](else:)[ [[Question belonging again-&gt;Imposter Syndrome]] ]
+(if: $visitedPressure is not true)[ [[Pressure]] ](else:)[ [[Feel the pressure again-&gt;Pressure]] ]
+(if: $visitedProcrastination is not true)[ [[Procrastination]] ](else:)[ [[Avoid it again-&gt;Procrastination]] ]
+(if: $visitedFuture is not true)[ [[Future]] ](else:)[ [[Think too far ahead again-&gt;Future]] ]
 [[Mind Hub]]
-
-</tw-passagedata><tw-passagedata pid="10" name="Imposter Syndrome" tags="impostersyndrome" position="300,625" size="100,100">(set: $stress to it + 2)
+(set: $stress to it + 2)
 (set: $energy to it - 1)
-(set: $visitedImposter to true)
+(set: $awareness to it + 1)
+(set: $visitedComparison to true)
 
+
+</tw-passagedata><tw-passagedata pid="10" name="Imposter Syndrome" tags="impostersyndrome" position="300,625" size="100,100">
 (text-style:&quot;expand&quot;,&quot;flat&quot;)[You start to wonder if you were ever supposed to be here.
 
 Not just in this moment,
@@ -691,15 +539,16 @@ Maybe you don’t.
 [[Shutdown]]
 [[Mind Hub]]
 
-
-</tw-passagedata><tw-passagedata pid="11" name="Procrastination" tags="procrastination" position="475,200" size="100,100">(set: $stress to it + 1)
+(set: $stress to it + 2)
 (set: $energy to it - 1)
-(set: $visitedProcrastination to true)
-(text-style:&quot;expand&quot;,&quot;buoy&quot;)[You do not start.
+(set: $visitedImposter to true)
+
+
+</tw-passagedata><tw-passagedata pid="11" name="Procrastination" tags="procrastination" position="475,200" size="100,100">(text-style:&quot;expand&quot;,&quot;buoy&quot;)[You do not start.
 
 Not exactly.
 
-You adjust the brigtness.
+You adjust the brightness.
 You check the time.
 You grab a drink.
 You open a tab.
@@ -715,39 +564,15 @@ You tell yourself they do not count.
 
 (if: $stress &gt; 4)[&#39;&#39;Even avoiding the work feels like work now&#39;&#39;]
 ]
-(if: $visitedGuilt is not true)[
-[[Guilt]]
-]
-(else:)[
-[[Feel guilty again-&gt;Guilt]]
-]
+(if: $visitedGuilt is not true)[ [[Guilt]] ](else:)[ [[Feel guilty again-&gt;Guilt]] ]
+(if: $visitedComparison is not true)[ [[Comparison]] ](else:)[ [[Compare yourself again-&gt;Comparison]] ]
+(if: $visitedTabs is not true)[ [[Tabs]] ](else:)[ [[Open the tabs again-&gt;Tabs]] ]
+(if: $visitedNumbness is not true)[ [[Numbness]] ](else:)[ [[Go quiet again-&gt;Numbness]] ]
+[[Mind Hub]]
 
-(if: $visitedComparison is not true)[
-[[Comparison]]
-]
-(else:)[
-[[Compare yourself again-&gt;Comparison]]
-]
-
-(if: $visitedTabs is not true)[
-[[Tabs]]
-]
-(else:)[
-[[Open the tabs again-&gt;Tabs]]
-]
-
-(if: $visitedNumbness is not true)[
-[[Numbness]]
-]
-(else:)[
-[[Go quiet again-&gt;Numbness]]
-]
-
-[[Mind Hub]]</tw-passagedata><tw-passagedata pid="12" name="Calendar" tags="calendar" position="300,175" size="100,100">(set: $stress to it + 2)
+(set: $stress to it + 1)
 (set: $energy to it - 1)
-(set: $visitedCalendar to true)
-
-(text-style:&quot;mark&quot;)[You decide to look at your calender. 
+(set: $visitedProcrastination to true)</tw-passagedata><tw-passagedata pid="12" name="Calendar" tags="calendar" position="300,175" size="100,100">(text-style:&quot;mark&quot;)[You decide to look at your calendar. 
 
 Everything is already there.
 
@@ -756,7 +581,7 @@ Exams.
 Deadlines.
 
 They are spaced out with time,
-but theres never enough.
+but there&#39;s never enough.
 
 Each one looks manageable on its own.
 
@@ -774,11 +599,11 @@ As there is no empty space
 [[Tabs]]
 [[Mind Hub]]
 
-</tw-passagedata><tw-passagedata pid="13" name="Fog" tags="fog" position="800,600" size="100,100">(set: $focus to it - 1)
+(set: $stress to it + 2)
 (set: $energy to it - 1)
-(set: $visitedFog to true)
+(set: $visitedCalendar to true)
 
-(text-style:&quot;condense&quot;,&quot;sway&quot;)[You try to read.
+</tw-passagedata><tw-passagedata pid="13" name="Fog" tags="fog" position="800,600" size="100,100">(text-style:&quot;condense&quot;,&quot;sway&quot;)[You try to read.
 
 The sentence makes sense.
 Then it doesn’t.
@@ -787,7 +612,7 @@ You go back.
 You read it again.
 
 It almost clicks.
-Amost becomes readable.
+Almost becomes readable.
 
 Then it slips away.
 
@@ -798,17 +623,17 @@ Time passes.
 
 You are not sure what you just read.
 
-(if: $energy &lt;= 1)[&#39;&#39;You stop trying to understand and just stare at the page, desperatley hoping it will make sense&#39;&#39;.]
+(if: $energy &lt;= 1)[&#39;&#39;You stop trying to understand and just stare at the page, desperately hoping it will make sense&#39;&#39;.]
 ]
 [[Sleep]]
 [[Numbness]]
 [[Burnout]]
 [[Mind Hub]]
 
-
-</tw-passagedata><tw-passagedata pid="14" name="Shutdown" tags="shutdown" position="550,775" size="100,100">(set: $energy to it - 1)
-(set: $stress to it + 1)
-(set: $visitedShutdown to true)
+(set: $focus to it - 1)
+(set: $energy to it - 1)
+(set: $visitedFog to true)
+</tw-passagedata><tw-passagedata pid="14" name="Shutdown" tags="shutdown" position="550,775" size="100,100">
 
 You stop trying.
 
@@ -826,31 +651,17 @@ Nothing moves forward.
 
 Nothing moves at all.
 
-(if: $visitedSleep is not true)[
-[[Sleep]]
-]
-(else:)[
-[[Try to rest again-&gt;Sleep]]
-]
 
-(if: $visitedNumbness is not true)[
-[[Numbness]]
-]
-(else:)[
-[[Go quiet again-&gt;Numbness]]
-]
-
+(if: $visitedSleep is not true)[ [[Sleep]] ](else:)[ [[Try to rest again-&gt;Sleep]] ]
+(if: $visitedNumbness is not true)[ [[Numbness]] ](else:)[ [[Go quiet again-&gt;Numbness]] ]
 [[Mind Hub]]
+(if: $energy &lt;= 0)[ [[Submit-&gt;Ending: Collapse]] ]
+(if: $energy &gt; 0)[ [[Persevere-&gt;Ending: Continue]] ]
 
-(if: $energy &lt;= 0)[
-[[Continue-&gt;Ending: Collapse]]
-]
-
-(if: $energy &gt; 0)[
-[[Continue-&gt;Ending: Continue]]
-]
-
-</tw-passagedata><tw-passagedata pid="15" name="Ending: Collapse" tags="collapse" position="300,825" size="100,100">Eventually, it becomes to much and you close the laptop.
+(set: $energy to it - 1)
+(set: $stress to it + 1)
+(set: $visitedShutdown to true)
+</tw-passagedata><tw-passagedata pid="15" name="Ending: Collapse" tags="collapse" position="300,825" size="100,100">Eventually, it becomes too much and you close the laptop.
 
 Not with a decision.
 Not with a plan.
@@ -872,14 +683,11 @@ But for now,
 
 you are done.
 
-And thats something. 
-(set: $endedCollapse to true)
-[[Start Over-&gt;Start]]
-</tw-passagedata><tw-passagedata pid="16" name="Tabs" tags="tabs" position="675,200" size="100,100">(set: $focus to it - 1)
-(set: $stress to it + 1)
-(set: $visitedTabs to true)
+And that&#39;s something. 
 
-(text-style:&quot;double-underline&quot;)[You open another tab.
+[[Start Over-&gt;Start]]
+
+(set: $endedCollapse to true)</tw-passagedata><tw-passagedata pid="16" name="Tabs" tags="tabs" position="675,200" size="100,100">(text-style:&quot;double-underline&quot;)[You open another tab.
 
 Then another.
 
@@ -906,15 +714,15 @@ Everything stays open.
 [[Comparison]]
 [[Mind Hub]]
 
+(set: $focus to it - 1)
+(set: $stress to it + 1)
+(set: $visitedTabs to true)
 
 
 
-</tw-passagedata><tw-passagedata pid="17" name="Future" tags="future" position="575,600" size="100,100">(set: $stress to it + 2)
-(set: $energy to it - 1)
-(set: $awareness to it + 1)
-(set: $visitedFuture to true)
 
-(text-style:&quot;emboss&quot;)[You stop thinking about the assignment.
+
+</tw-passagedata><tw-passagedata pid="17" name="Future" tags="future" position="575,600" size="100,100">(text-style:&quot;emboss&quot;)[You stop thinking about the assignment.
 
 Not completely.
 
@@ -939,7 +747,12 @@ You try to bring it back to the present.
 [[Shutdown]]
 [[Mind Hub]]
 
-</tw-passagedata><tw-passagedata pid="18" name="Start" tags="start" position="525,0" size="100,100">It is time.
+(set: $stress to it + 2)
+(set: $energy to it - 1)
+(set: $awareness to it + 1)
+(set: $visitedFuture to true)
+
+</tw-passagedata><tw-passagedata pid="18" name="Start" tags="start" position="725,0" size="100,100">It is time.
 
 There is something here.
 
@@ -959,8 +772,29 @@ You are here.
 
 It is time to begin.
 
-[[Enter-&gt;Mind Hub]]</tw-passagedata><tw-passagedata pid="19" name="Ending: Continue" tags="continue" position="800,850" size="100,100">
-(set: $endedContinue to true)
+[[Enter-&gt;Mind Hub]]
+
+(set: $stress to 0)
+(set: $awareness to 0)
+(set: $energy to 5)
+(set: $focus to 0)
+(set: $visitedFocus to false)
+(set: $visitedProcrastination to false)
+(set: $visitedComparison to false)
+(set: $visitedSleep to false)
+(set: $visitedPressure to false)
+(set: $visitedNumbness to false)
+(set: $visitedProductivity to false)
+(set: $visitedBurnout to false)
+(set: $visitedGuilt to false)
+(set: $visitedCalendar to false)
+(set: $visitedFuture to false)
+(set: $visitedImposter to false)
+(set: $visitedTabs to false)
+(set: $visitedFog to false)
+(set: $visitedShutdown to false)
+(set: $visitedBody to false)
+</tw-passagedata><tw-passagedata pid="19" name="Ending: Continue" tags="continue" position="800,850" size="100,100">
 
 Nothing is solved.
 
@@ -981,7 +815,10 @@ But because you muster the strength to continue.
 And for now,
 that is enough.
 
-[[Start Over-&gt;Start]]</tw-passagedata><tw-passagedata pid="20" name="Ending: Awareness" tags="awareness" position="550,925" size="100,100">(text-style:&quot;wavy-underline&quot;)[You stop.
+[[Start Over-&gt;Start]]
+
+(set: $endedContinue to true)</tw-passagedata><tw-passagedata pid="20" name="Ending: Awareness" tags="awareness" position="450,1250" size="100,100">(text-style:&quot;wavy-underline&quot;)[
+You stop.
 
 Not in the same way as before.
 
@@ -989,7 +826,9 @@ You notice it.
 
 The way you move between things.
 The way each feeling leads to another.
+
 The loops.
+The patterns.
 
 Focus becomes pressure.
 Pressure becomes avoidance.
@@ -998,7 +837,7 @@ Avoidance becomes guilt.
 You have been here before.
 
 Not in this exact moment,
-but in this pattern.
+but in this mold.
 
 Nothing is fixed.
 
@@ -1006,17 +845,15 @@ The work is still there.
 
 But now you can see it.
 
-Now you know hot to defeat it. 
+Now you know the cycle can be interrupted. 
 
 And that feels different.
 ]
-(set: $endedAwareness to true)
+
 
 [[Start Over-&gt;Start]]
-</tw-passagedata><tw-passagedata pid="21" name="Body" tags="body" position="0,350" size="100,100">(set: $energy to it - 1)
-(set: $stress to it + 1)
-(set: $visitedBody to true)
-(text-style:&quot;shadow&quot;,&quot;expand&quot;)[Your body notices before you do.
+
+(set: $endedAwareness to true)</tw-passagedata><tw-passagedata pid="21" name="Body" tags="body" position="0,350" size="100,100">(text-style:&quot;shadow&quot;,&quot;expand&quot;)[Your body notices before you do.
 
 Your shoulders stay tense.
 Your eyes burn.
@@ -1035,7 +872,11 @@ Everything is noticeable enough to stay.
 [[Sleep]]
 [[Burnout]]
 [[Numbness]]
-[[Mind Hub]]</tw-passagedata></tw-storydata>
+[[Mind Hub]]
+
+(set: $energy to it - 1)
+(set: $stress to it + 1)
+(set: $visitedBody to true)</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
