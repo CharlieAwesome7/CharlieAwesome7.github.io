@@ -61,6 +61,19 @@ tw-link {
   margin: 1.25px 0;
 }
 
+tw-linkvisited,
+visited {
+  color: #d7d7d7;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+
+tw-linkvisited:hover,
+visited:hover {
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.6);
+  background-color: rgba(255,255,255,0.05);
+}
+
 
 tw-passage::before {
   content: "";
@@ -255,8 +268,9 @@ You also know you won’t start immediately.
 So you stay here for a moment.
 
 What do you do?
-(if: $awareness &gt;= 3 and $visitedGuilt and $visitedComparison and $visitedFuture and $visitedFog)[ [[Notice the pattern-&gt;Ending: Awareness]] ]
-(else-if: $awareness &gt;= 2)[&lt;span class=&quot;locked&quot;&gt;You almost see the pattern.&lt;/span&gt;]
+
+(if: $awareness &gt;= 3 and $visitedGuilt and $visitedComparison and $visitedFuture and $visitedFog)[ [[&#39;&#39;Notice the pattern&#39;&#39;-&gt;Ending: Awareness]] ]
+(else-if: $awareness &gt;= 2)[&lt;span class=&quot;locked&quot;&gt;//You almost see the pattern//.&lt;/span&gt;]
 (if: $visitedFocus is not true)[ [[Focus]] ](else:)[ [[Try to focus again-&gt;Focus]] ]
 (if: $visitedProcrastination is not true)[ [[Procrastination]] ](else:)[ [[Drift back into delay-&gt;Procrastination]] ]
 (if: $visitedComparison is not true)[ [[Comparison]] ](else:)[ [[Measure yourself again-&gt;Comparison]] ]
@@ -685,7 +699,9 @@ you are done.
 
 And that&#39;s something. 
 
-[[Start Over-&gt;Start]]
+(link: &quot;Start Over&quot;)[
+  (restart:)
+]
 
 (set: $endedCollapse to true)</tw-passagedata><tw-passagedata pid="16" name="Tabs" tags="tabs" position="675,200" size="100,100">(text-style:&quot;double-underline&quot;)[You open another tab.
 
@@ -815,8 +831,9 @@ But because you muster the strength to continue.
 And for now,
 that is enough.
 
-[[Start Over-&gt;Start]]
-
+(link: &quot;Start Over&quot;)[
+  (restart:)
+]
 (set: $endedContinue to true)</tw-passagedata><tw-passagedata pid="20" name="Ending: Awareness" tags="awareness" position="450,1250" size="100,100">(text-style:&quot;wavy-underline&quot;)[
 You stop.
 
@@ -851,8 +868,9 @@ And that feels different.
 ]
 
 
-[[Start Over-&gt;Start]]
-
+(link: &quot;Start Over&quot;)[
+  (restart:)
+]
 (set: $endedAwareness to true)</tw-passagedata><tw-passagedata pid="21" name="Body" tags="body" position="0,350" size="100,100">(text-style:&quot;shadow&quot;,&quot;expand&quot;)[Your body notices before you do.
 
 Your shoulders stay tense.
